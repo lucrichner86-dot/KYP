@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 160 10% 6%;
+    --foreground: 60 5% 90%;
+
+    --card: 160 8% 9%;
+    --card-foreground: 60 5% 90%;
+
+    --popover: 160 8% 9%;
+    --popover-foreground: 60 5% 90%;
+
+    --primary: 145 30% 45%;
+    --primary-foreground: 160 10% 6%;
+
+    --secondary: 160 6% 14%;
+    --secondary-foreground: 60 5% 75%;
+
+    --muted: 160 6% 12%;
+    --muted-foreground: 160 5% 50%;
+
+    --accent: 42 80% 55%;
+    --accent-foreground: 160 10% 6%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 60 5% 90%;
+
+    --border: 160 8% 16%;
+    --input: 160 8% 16%;
+    --ring: 145 30% 45%;
+
+    --radius: 0.375rem;
+
+    --sidebar-background: 160 8% 8%;
+    --sidebar-foreground: 60 5% 90%;
+    --sidebar-primary: 145 30% 45%;
+    --sidebar-primary-foreground: 160 10% 6%;
+    --sidebar-accent: 160 6% 14%;
+    --sidebar-accent-foreground: 60 5% 75%;
+    --sidebar-border: 160 8% 16%;
+    --sidebar-ring: 145 30% 45%;
+
+    /* KYP custom tokens */
+    --clinical: 145 20% 35%;
+    --clinical-foreground: 60 5% 90%;
+    --data: 42 80% 55%;
+    --data-foreground: 160 10% 6%;
+    --verified: 145 50% 50%;
+    --warning: 30 80% 55%;
+    --chain: 160 5% 20%;
+    --chain-line: 145 20% 30%;
+    --surface-elevated: 160 8% 11%;
+    --glow-primary: 145 40% 40%;
+  }
+
+  .dark {
+    /* Already dark-first design */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .font-mono-data {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--data)));
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 40px -10px hsl(var(--glow-primary) / 0.3);
+  }
+
+  .border-glow {
+    box-shadow: 0 0 20px -5px hsl(var(--glow-primary) / 0.15);
+  }
+
+  .grid-clinical {
+    background-image: 
+      linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .data-badge {
+    @apply font-mono-data text-xs px-2 py-0.5 rounded-sm border;
+  }
+}
